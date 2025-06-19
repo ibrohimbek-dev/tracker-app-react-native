@@ -7,21 +7,44 @@ import RecentExpenses from "./screens/RecentExpenses";
 import AllExpenses from "./screens/AllExpenses";
 import { GlobalStyles } from "./constants/styles";
 import { Ionicons } from "@expo/vector-icons";
+import IconButton from "./components/UI/IconButton";
+import * as NavigationBar from "expo-navigation-bar";
+import { Platform } from "react-native";
+import { useEffect } from "react";
 
 const Stack = createNativeStackNavigator();
 const BottomTabs = createBottomTabNavigator();
 
 function ExpensesOverview() {
+	useEffect(() => {
+		if (Platform.OS === "android") {
+			NavigationBar.setBackgroundColorAsync("white");
+			NavigationBar.setButtonStyleAsync("dark");
+		}
+	}, []);
+
 	return (
 		<BottomTabs.Navigator
-			screenOptions={{
+			screenOptions={({ navigation }) => ({
 				headerStyle: {
 					backgroundColor: GlobalStyles.colors.primary500,
 				},
 				headerTintColor: "white",
 				tabBarStyle: { backgroundColor: GlobalStyles.colors.primary500 },
 				tabBarActiveTintColor: GlobalStyles.colors.accent500,
-			}}
+				headerRight: ({ tintColor }) => {
+					return (
+						<IconButton
+							icon={"add"}
+							size={24}
+							color={tintColor}
+							onPress={() => {
+								navigation.navigate("ManageExpenses");
+							}}
+						/>
+					);
+				},
+			})}
 		>
 			<BottomTabs.Screen
 				name="RecentExpenses"
