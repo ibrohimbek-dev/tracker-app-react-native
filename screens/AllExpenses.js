@@ -4,7 +4,6 @@ import { ExpensesContext } from "../store/expenses-context";
 
 const AllExpenses = () => {
 	const expensesContext = useContext(ExpensesContext);
-
 	return (
 		<ExpensesOutput
 			expenses={expensesContext.expenses}

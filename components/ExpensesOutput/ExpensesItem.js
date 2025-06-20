@@ -8,9 +8,17 @@ const ExpensesItem = ({ id, desc, amount, date }) => {
 	const navigation = useNavigation();
 
 	const expensePressHandler = () => {
-		navigation.navigate("ManageExpenses", {
-			expenseId: id,
-		});
+		try {
+			if (!navigation?.navigate) {
+				throw new Error("Navigation not initialized");
+			}
+			navigation.navigate("ManageExpenses", {
+				expenseId: id,
+			});
+		} catch (error) {
+			console.error("Navigation error:", error);
+			Alert.alert("Error", "Could not open expense details");
+		}
 	};
 
 	return (

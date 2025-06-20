@@ -23,18 +23,14 @@ function ExpensesOverview() {
 				headerTintColor: "white",
 				tabBarStyle: { backgroundColor: GlobalStyles.colors.primary500 },
 				tabBarActiveTintColor: GlobalStyles.colors.accent500,
-				headerRight: ({ tintColor }) => {
-					return (
-						<IconButton
-							icon={"add"}
-							size={24}
-							color={tintColor}
-							onPress={() => {
-								navigation.navigate("ManageExpenses");
-							}}
-						/>
-					);
-				},
+				headerRight: () => (
+					<IconButton
+						icon="add"
+						size={24}
+						color="white"
+						onPress={() => navigation.navigate("ManageExpenses")}
+					/>
+				),
 			})}
 		>
 			<BottomTabs.Screen
@@ -78,16 +74,12 @@ export default function App() {
 						<Stack.Screen
 							name="ExpensesOverview"
 							component={ExpensesOverview}
-							options={{
-								headerShown: false,
-							}}
+							options={{ headerShown: false }}
 						/>
 						<Stack.Screen
 							name="ManageExpenses"
 							component={ManageExpenses}
-							options={{
-								presentation: "modal",
-							}}
+							options={{ presentation: "modal" }}
 						/>
 					</Stack.Navigator>
 				</NavigationContainer>
