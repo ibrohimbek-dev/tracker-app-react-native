@@ -1,37 +1,43 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { NavigationContainer } from "@react-navigation/native";
+import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { StatusBar } from "expo-status-bar";
-import ManageExpenses from "./screens/ManageExpenses";
 import RecentExpenses from "./screens/RecentExpenses";
 import AllExpenses from "./screens/AllExpenses";
 import { GlobalStyles } from "./constants/styles";
 import { Ionicons } from "@expo/vector-icons";
 import IconButton from "./components/UI/IconButton";
 import ExpensesContextProvider from "./store/expenses-context";
+import ManageExpenses from "./screens/ManageExpenses";
 
 const Stack = createNativeStackNavigator();
 const BottomTabs = createBottomTabNavigator();
 
 function ExpensesOverview() {
+	const navigation = useNavigation();
 	return (
 		<BottomTabs.Navigator
-			screenOptions={({ navigation }) => ({
+			screenOptions={{
 				headerStyle: {
 					backgroundColor: GlobalStyles.colors.primary500,
 				},
 				headerTintColor: "white",
 				tabBarStyle: { backgroundColor: GlobalStyles.colors.primary500 },
 				tabBarActiveTintColor: GlobalStyles.colors.accent500,
-				headerRight: () => (
-					<IconButton
-						icon="add"
-						size={24}
-						color="white"
-						onPress={() => navigation.navigate("ManageExpenses")}
-					/>
-				),
-			})}
+				headerRight: () => {
+					return (
+						<IconButton
+							icon="add"
+							size={24}
+							color="white"
+							onPress={() => {
+								console.log("Attempting navigation...");
+								navigation.navigate("ManageExpenses");
+							}}
+						/>
+					);
+				},
+			}}
 		>
 			<BottomTabs.Screen
 				name="RecentExpenses"
