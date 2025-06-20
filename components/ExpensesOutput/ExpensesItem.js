@@ -4,11 +4,13 @@ import { GlobalStyles } from "../../constants/styles";
 import { formatDate } from "../../util/date";
 import { useNavigation } from "@react-navigation/native";
 
-const ExpensesItem = ({ desc, amount, date }) => {
+const ExpensesItem = ({ id, desc, amount, date }) => {
 	const navigation = useNavigation();
 
 	const expensePressHandler = () => {
-		navigation.navigate("ManageExpenses");
+		navigation.navigate("ManageExpenses", {
+			expenseId: id,
+		});
 	};
 
 	return (
@@ -23,7 +25,7 @@ const ExpensesItem = ({ desc, amount, date }) => {
 					<Text style={styles.date}>{formatDate(date)}</Text>
 				</View>
 				<View style={styles.amountContainer}>
-					<Text style={styles.amount}>${amount.toFixed(2)}</Text>
+					<Text style={styles.amount}>${amount?.toFixed(2)}</Text>
 				</View>
 			</View>
 		</Pressable>

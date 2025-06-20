@@ -4,74 +4,8 @@ import ExpensesSummary from "./ExpensesSummary";
 import ExpensesList from "./ExpensesList";
 import { GlobalStyles } from "../../constants/styles";
 
-const DUMMY_EXPENSES = [
-	{
-		id: "e1",
-		desc: "Running shoes",
-		amount: 89.99,
-		date: new Date("2023-01-15"),
-	},
-	{
-		id: "e2",
-		desc: "Groceries",
-		amount: 127.5,
-		date: new Date("2023-02-03"),
-	},
-	{
-		id: "e3",
-		desc: "Movie tickets",
-		amount: 24.0,
-		date: new Date("2023-02-18"),
-	},
-	{
-		id: "e4",
-		desc: "Dinner at Italian restaurant",
-		amount: 65.8,
-		date: new Date("2023-03-05"),
-	},
-	{
-		id: "e5",
-		desc: "New phone case",
-		amount: 19.99,
-		date: new Date("2023-03-22"),
-	},
-	{
-		id: "e6",
-		desc: "Gym membership",
-		amount: 45.0,
-		date: new Date("2023-04-01"),
-	},
-	{
-		id: "e7",
-		desc: "Book purchase",
-		amount: 14.95,
-		date: new Date("2023-04-12"),
-	},
-	{
-		id: "e8",
-		desc: "Car maintenance",
-		amount: 220.0,
-		date: new Date("2023-05-08"),
-	},
-	{
-		id: "e9",
-		desc: "Birthday gift",
-		amount: 75.25,
-		date: new Date("2023-05-20"),
-	},
-	{
-		id: "e10",
-		desc: "Summer clothes",
-		amount: 132.4,
-		date: new Date("2023-06-05"),
-	},
-];
-
-function ExpensesOutput({
-	expenses = DUMMY_EXPENSES,
-	expensesPeriod = "Last 7 Days",
-}) {
-	const totalAmount = expenses.reduce(
+function ExpensesOutput({ expenses, expensesPeriod }) {
+	const totalAmount = expenses?.reduce(
 		(sum, expense) => sum + expense.amount,
 		0
 	);
@@ -98,7 +32,7 @@ function ExpensesOutput({
 
 			<View style={styles.footerContainer}>
 				<Text style={styles.footerText}>TOTAL SPENT:</Text>
-				<Text style={styles.footerAmount}>${totalAmount.toFixed(2)}</Text>
+				<Text style={styles.footerAmount}>${totalAmount?.toFixed(2)}</Text>
 			</View>
 		</View>
 	);
