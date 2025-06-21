@@ -1,12 +1,12 @@
 import React from "react";
 import { Pressable, View, StyleSheet } from "react-native";
-import { GlobalStyles } from "../../constants/styles";
+import { GlobalColors } from "../../constants/colors";
 import { Ionicons } from "@expo/vector-icons";
 
 const IconButton = ({
 	icon,
 	size = 24,
-	color = GlobalStyles.colors.primary50,
+	color = GlobalColors.colors.primary50,
 	onPress,
 }) => {
 	return (
@@ -14,7 +14,7 @@ const IconButton = ({
 			onPressIn={onPress}
 			style={({ pressed }) => [styles.button, pressed && styles.pressed]}
 			android_ripple={{
-				color: GlobalStyles.colors.primary100,
+				color: GlobalColors.colors.primary100,
 				borderless: true,
 				radius: size + 8,
 			}}

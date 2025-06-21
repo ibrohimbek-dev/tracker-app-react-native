@@ -4,7 +4,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { StatusBar } from "expo-status-bar";
 import RecentExpenses from "./screens/RecentExpenses";
 import AllExpenses from "./screens/AllExpenses";
-import { GlobalStyles } from "./constants/styles";
+import { GlobalColors } from "./constants/colors";
 import { Ionicons } from "@expo/vector-icons";
 import IconButton from "./components/UI/IconButton";
 import ExpensesContextProvider from "./store/expenses-context";
@@ -19,11 +19,11 @@ function ExpensesOverview() {
 		<BottomTabs.Navigator
 			screenOptions={{
 				headerStyle: {
-					backgroundColor: GlobalStyles.colors.primary500,
+					backgroundColor: GlobalColors.colors.primary500,
 				},
 				headerTintColor: "white",
-				tabBarStyle: { backgroundColor: GlobalStyles.colors.primary500 },
-				tabBarActiveTintColor: GlobalStyles.colors.accent500,
+				tabBarStyle: { backgroundColor: GlobalColors.colors.primary500 },
+				tabBarActiveTintColor: GlobalColors.colors.accent500,
 				headerRight: () => {
 					return (
 						<IconButton
@@ -31,7 +31,6 @@ function ExpensesOverview() {
 							size={24}
 							color="white"
 							onPress={() => {
-								console.log("Attempting navigation...");
 								navigation.navigate("ManageExpenses");
 							}}
 						/>
@@ -73,7 +72,7 @@ export default function App() {
 				<NavigationContainer>
 					<Stack.Navigator
 						screenOptions={{
-							headerStyle: { backgroundColor: GlobalStyles.colors.primary500 },
+							headerStyle: { backgroundColor: GlobalColors.colors.primary500 },
 							headerTintColor: "white",
 						}}
 					>

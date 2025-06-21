@@ -1,6 +1,6 @@
 import React from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
-import { GlobalStyles } from "../../constants/styles";
+import { GlobalColors } from "../../constants/colors";
 import { formatDate } from "../../util/date";
 import { useNavigation } from "@react-navigation/native";
 
@@ -25,7 +25,7 @@ const ExpensesItem = ({ id, desc, amount, date }) => {
 		<Pressable
 			onPress={expensePressHandler}
 			style={({ pressed }) => [styles.container, pressed && styles.pressed]}
-			android_ripple={{ color: GlobalStyles.colors.primary100 }}
+			android_ripple={{ color: GlobalColors.colors.primary100 }}
 		>
 			<View style={styles.innerContainer}>
 				<View style={styles.textContainer}>
@@ -48,9 +48,9 @@ const styles = StyleSheet.create({
 		marginVertical: 4,
 		borderRadius: 6,
 		overflow: "hidden",
-		backgroundColor: GlobalStyles.colors.primary500,
+		backgroundColor: GlobalColors.colors.primary500,
 		elevation: 3,
-		shadowColor: GlobalStyles.colors.gray700,
+		shadowColor: GlobalColors.colors.gray700,
 		shadowOffset: { width: 1, height: 1 },
 		shadowOpacity: 0.4,
 		shadowRadius: 4,
@@ -69,12 +69,12 @@ const styles = StyleSheet.create({
 	description: {
 		fontSize: 16,
 		fontWeight: "bold",
-		color: GlobalStyles.colors.primary50,
+		color: GlobalColors.colors.primary50,
 		marginBottom: 4,
 	},
 	date: {
 		fontSize: 14,
-		color: GlobalStyles.colors.primary100,
+		color: GlobalColors.colors.primary100,
 	},
 	amountContainer: {
 		justifyContent: "center",
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
 		borderRadius: 4,
 	},
 	amount: {
-		color: GlobalStyles.colors.primary500,
+		color: GlobalColors.colors.primary500,
 		fontWeight: "bold",
 	},
 });

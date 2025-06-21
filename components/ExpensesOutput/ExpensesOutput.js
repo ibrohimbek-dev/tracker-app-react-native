@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import ExpensesSummary from "./ExpensesSummary";
 import ExpensesList from "./ExpensesList";
-import { GlobalStyles } from "../../constants/styles";
+import { GlobalColors } from "../../constants/colors";
 
 function ExpensesOutput({ expenses, expensesPeriod }) {
 	const totalAmount = expenses?.reduce(
@@ -43,13 +43,13 @@ export default ExpensesOutput;
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: GlobalStyles.colors.primary50,
+		backgroundColor: GlobalColors.colors.primary50,
 	},
 	summaryContainer: {
 		padding: 10,
-		backgroundColor: GlobalStyles.colors.primary100,
+		backgroundColor: GlobalColors.colors.primary100,
 		borderBottomWidth: 1,
-		borderBottomColor: GlobalStyles.colors.primary200,
+		borderBottomColor: GlobalColors.colors.primary200,
 	},
 	contentContainer: {
 		flex: 1,
@@ -63,31 +63,31 @@ const styles = StyleSheet.create({
 	},
 	emptyText: {
 		fontSize: 18,
-		color: GlobalStyles.colors.gray700,
+		color: GlobalColors.colors.gray700,
 		fontWeight: "bold",
 		marginBottom: 8,
 	},
 	emptySubtext: {
 		fontSize: 14,
-		color: GlobalStyles.colors.gray500,
+		color: GlobalColors.colors.gray500,
 	},
 	footerContainer: {
 		flexDirection: "row",
 		justifyContent: "space-between",
 		alignItems: "center",
 		padding: 10,
-		backgroundColor: GlobalStyles.colors.primary200,
+		backgroundColor: GlobalColors.colors.primary200,
 		borderTopWidth: 1,
-		borderTopColor: GlobalStyles.colors.primary400,
+		borderTopColor: GlobalColors.colors.primary400,
 	},
 	footerText: {
 		fontSize: 16,
-		color: GlobalStyles.colors.primary800,
+		color: GlobalColors.colors.primary800,
 		fontWeight: "bold",
 	},
 	footerAmount: {
 		fontSize: 18,
-		color: GlobalStyles.colors.primary700,
+		color: GlobalColors.colors.primary700,
 		fontWeight: "bold",
 	},
 });

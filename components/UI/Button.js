@@ -1,6 +1,6 @@
 import React from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
-import { GlobalStyles } from "../../constants/styles";
+import { GlobalColors } from "../../constants/colors";
 
 const Button = ({ children, onPress, mode, style }) => {
 	return (
@@ -25,10 +25,10 @@ const styles = StyleSheet.create({
 	button: {
 		borderRadius: 4,
 		padding: 8,
-		backgroundColor: GlobalStyles.colors.primary500,
+		backgroundColor: GlobalColors.colors.success400,
 	},
 	flat: {
-		backgroundColor: GlobalStyles.colors.primary100,
+		backgroundColor: GlobalColors.colors.error100,
 	},
 
 	buttonText: {
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
 
 	pressed: {
 		opacity: 0.75,
-		backgroundColor: GlobalStyles.colors.primary100,
+		backgroundColor: GlobalColors.colors.primary100,
 		borderRadius: 4,
 	},
 });
